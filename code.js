@@ -54,8 +54,11 @@ function escribirdias() {
             mimes = diames.getMonth()
             mianno = diames.getFullYear()
             celda = fila.getElementsByTagName("section")[j];
-            celda.firstElementChild.innerHTML = midia;
+
+            celda.classList.add("day_"+(midia.toString().padStart(2,"0"))+"/"+((mimes+1).toString().padStart(2,"0"))+"/"+mianno);
             
+            celda.firstElementChild.innerHTML = midia;
+
             celda.classList.add("more");
             celda.classList.remove("hoy");
            

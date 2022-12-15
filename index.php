@@ -5,12 +5,10 @@
     <title>Calendario</title>
     <link rel="stylesheet" type="text/css" href="style.css" media="all" />
 </head>
-<style>
-
-</style>
-
 <body>
-    <br /><br />
+    <?php
+        require("./components/header.php");
+    ?>
     <div id="calendario">
         <div id="buscafecha">
             <form action="#" name="buscar">
