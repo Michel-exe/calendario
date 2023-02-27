@@ -7,71 +7,81 @@
 <body>
     <?php
         require("./components/header.php");
+        require("./components/aside.php");
+        require("./components/carga.php");
     ?>
     <div id="agendar" class="agendar">
-        <form>
-            <fieldset class="field-nor">
+        <form id="formulario">
+            <div class="field field-nor">
                 <label for="" required>Fecha</label>
-                <input type="date" required>
-            </fieldset>
-            <fieldset class="field-check">
-                <input type="checkbox" name="" id="checkbox">
+                <input type="date">
+            </div>
+            <div class="field field-check">
+                <input type="checkbox" name="" id="checkbox" checked>
                 <label for="checkbox">Todo el dia</label>
-            </fieldset>
-            <fieldset class="field-time">
-                <label>Hora</label>
+            </div>
+            <div class="field field-time">
+                <label required>Hora</label>
                 <div>
-                    <label required>De </label>
-                    <input type="time" required>
+                    <label >De </label>
+                    <input type="time" >
                     <label> a </label>
                     <input type="time">
                 </div>
-            </fieldset>
-            <fieldset class="field-cont">
-                <label required >Evento</label>
-                <input class="inp-Max" type="text" cont="0" required maxlength="50">
-                <span> <b>0 </b> / 50 </span>
-                <label >Descripcion</label>
-                <textarea class="inp-Max" cont="0" maxlength="500"></textarea>
-                <span> <b>0 </b> / 500 </span>
-                <label >Ubicacion</label>
-                <textarea class="inp-Max" cont="0" maxlength="200"></textarea>
-                <span> <b>0 </b> / 200 </span>
-            </fieldset>
-            <fieldset class="field-col">
-                <label for="">Color: </label>
+            </div>
+            <div class="field">
+                <?php
+                    require("./components/eventos.php");
+                ?>
+                <div class="field agregar-evento">
+                    <section>
+                        <h2>Nuevo evento</h2>
+                    </section>
+                    <?php
+                        require("./form/evento.php");
+                    ?>
+                </div>
+            </div>
+            <div class="field">
+                <?php
+                    require("./components/ubicaciones.php");
+                ?>
+                <div class="field agregar-evento">
+                    <section>
+                        <h2>Nueva Ubicacion</h2>
+                    </section>
+                    <?php
+                        require("./form/ubicacion.php");
+                    ?>
+                </div>
+            </div>
+            <div class="field field-col">
+                <label for="" required>Color</label>
                 <section>
                     <input type="radio" name="col" col="#dc3545" id="bg-red">
-                    <input type="radio" name="col" col="#007bff" id="bg-blue">
+                    <input type="radio" name="col" col="#007bff" id="bg-blue" checked>
                     <input type="radio" name="col" col="#28a745" id="bg-green">
                     <input type="radio" name="col" col="#ec00b9" id="bg-pink">
                     <input type="radio" name="col" col="#ffc107" id="bg-yellow">
+                    <input type="radio" name="col" col="#d78c09" id="bg-choco">
                     <input type="radio" name="col" col="" id="bg-new">
                     <input type="color" id="bg-color">
-                    <label class="bg-red" for="bg-red"></label>
-                    <label class="bg-blue" for="bg-blue"></label>
-                    <label class="bg-green" for="bg-green"></label>
-                    <label class="bg-pink" for="bg-pink"></label>
-                    <label class="bg-yellow" for="bg-yellow"></label>
-                    <label class="bg-new" for="bg-color"></label>
+                    <div class="bg-label">
+                        <label id="bg-red"      for="bg-red"></label>
+                        <label id="bg-blue"     for="bg-blue" class="active"></label>
+                        <label id="bg-green"    for="bg-green"></label>
+                        <label id="bg-pink"     for="bg-pink"></label>
+                        <label id="bg-yellow"   for="bg-yellow"></label>
+                        <label id="bg-newLabel" for="bg-color"></label>
+                    </div>
                 </section>
-            </fieldset>
+            </div>
             <div class="eveAgendar">
                 <input type="submit" value="Agendar">
             </div>
         </form>
     </div>
-    <script>
-        document.getElementById("bg-color").addEventListener("input", e =>{
-            document.getElementById("bg-new").setAttribute("col",e.target.value)
-            document.querySelector(".bg-new").style.background=e.target.value
-        })
-        document.querySelectorAll(".inp-Max").forEach(i=>{
-            i.addEventListener("keyup",e=>{
-                e.target.nextElementSibling.firstElementChild.innerHTML=e.target.value.length
-            })
-        })
-    </script>
+    <script src="agendar.js"></script>
 </body>
 
 </html>
