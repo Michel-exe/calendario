@@ -36,6 +36,7 @@
         echo $jsonstring;
         mysqli_close($con);
     } else if ($type=="evento") {
+        require ("./funciones.php");
         $ide = $_POST["ide"];
         $day = $_POST["day"];
         $mounth = $_POST["mounth"];
@@ -55,6 +56,7 @@
             die('[{"e":"2"}]');
         }
         while($rowE = mysqli_fetch_array($resE)){
+            $f = fecha($rowE['i_fecha']);
             $jsonE[] = array(
                 'id' => $rowE['id'],
                 'mounth' => $rowE['mounth'],
@@ -62,7 +64,9 @@
                 'i_fecha' => $rowE['i_fecha'],
                 't_fecha' => $rowE['t_fecha'],
                 'i_hora' => $rowE['i_hora'],
+                'diasRes' => $f,
                 't_hora' => $rowE['t_hora'],
+                'dirLink' => "calle+{$rowE['calle']}+{$rowE['numero']}+{$rowE['barrio']}+cd+{$rowE['municipio']}+{$rowE['estado']}",
                 'color' => $rowE['color'],
                 'evento' => $rowE['evento'],
                 'description' => $rowE['description'],
