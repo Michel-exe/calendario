@@ -1,8 +1,5 @@
 const compServ = (ide,val)=>{
-    return`
-    <p data-id='${ide}'>
-        ${val} <span>X</span>
-    </p>`;
+    return`<p data-id='${ide}'>${val} <span>X</span></p>`;
 };
 const agregar1 = ()=>{
     const agregar = document.getElementById("agregar");
@@ -58,7 +55,12 @@ const agregar2 = ()=>{
 const inpEve = e =>{
     const tar = e.target;
     if((tar.tagName=="INPUT" || tar.tagName=="TEXTAREA") && tar.classList.contains("inpEvent")){
-        let bro = tar.nextElementSibling.querySelector("b")
+        let bro;
+        try {
+            bro = tar.nextElementSibling.querySelector("b")
+        } catch (error) {
+            bro = tar.parentNode.nextElementSibling.querySelector("b")
+        }
         bro.textContent=tar.value.length
     }
 }

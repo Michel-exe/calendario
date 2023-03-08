@@ -3,6 +3,7 @@
     $get = $_GET['t'];
 
     $nom = $get=='1' ? 'airBNB' : 'restaurante';
+    $form = $get=='1' ? 'h' : 'r';
 
     include("./php/cn.php");
     $opt="";
@@ -22,7 +23,7 @@
     <script src="./eventos.js"></script>
 </head>
 <body>
-    <form action="">
+    <form action="" data-t="<?php echo $form ?>">
         <fieldset>
             <h3>Nombre del <?php echo $nom ?></h3>
             <div>
@@ -72,7 +73,7 @@
                     </section>
                     <section class="input inp-list">
                         <h4>Servicios: </h4>
-                        <div class="sect-list"> </div>
+                        <div class="sect-list"></div>
                         <input type="text" data-f='h' list="listServicios">
                         <input type="button" value="Agregar" id="agregar">
                         <datalist id="listServicios">
@@ -86,7 +87,7 @@
                     </section>
                     <script> agregar1() </script>
                 </div>
-            <?php } else { ?>
+            <?php } else if($get=='2') { ?>
                 <div>
                     <section class="input inp-sel">
                         <label require>Localidad: </label>
@@ -117,16 +118,23 @@
                             ?>
                         </select>
                     </section>
+                    <section class="input inp-are">
+                        <label require>Referencias: </label>
+                        <textarea data-f='h' cols="30" rows="1" class="inpEvent" required data-co="0" data-le="300" maxlength="300" ></textarea>
+                        <span> <b>0</b> / 300 </span>
+                    </section>
                     <section class="input inp-list">
                         <h4>Platillos: </h4>
                         <div class="sect-list"></div>
-                        <input type="text" data-f='a' class="inpEvent" required data-co="0" data-le="50" maxlength="50" >
+                        <input type="text" data-f='a' class="inpEvent" data-co="0" data-le="50" maxlength="50" >
                         <span> <b>0</b> / 50 </span>
                         <input type="button" value="Agregar" id="agregar">
                     </section>
                     <script> agregar2() </script>
                 </div>
-            <?php } ?>
+            <?php } else {
+                echo "Error";
+            } ?>
         </fieldset>
         <fieldset>
             <input type="submit" value="Guardar">

@@ -1,20 +1,39 @@
 <header>
     <div>
-        <picture>
-            <img src="" alt="Logo">
-        </picture>
-        <form>
-            <section>
-                <input type="search" name="" id="">
-                <button type="submit">
-                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg>
+        <a href="./index.php">
+            <picture>
+                <img src="./media/logo.png" alt="Logo">
+            </picture>
+        </a>
+        <form method="get" action="./busqueda.php">
+            <section class="inp inp-ser">
+                <select name="loc" id="">
+                    <option value='0'>Localidad</option>
+                    <?php 
+                        $res = mysqli_query($con, "SELECT * FROM localidad");
+                        while ($r = mysqli_fetch_array($res)) {
+                            echo "<option value='{$r['idLoc']}'>{$r['localidad']}</option>";
+                        }
+                    ?>
+                </select>
+                <select name="tip" id="">
+                    <option value='0'>Tipo</option>
+                    <?php 
+                        $res = mysqli_query($con, "SELECT * FROM reftipos");
+                        while ($r = mysqli_fetch_array($res)) {
+                            echo "<option value='{$r['idTipo']}'>{$r['tipo']}</option>";
+                            // echo "<p data-i='{$r['idTipo']}'>{$r['tipo']}</p>";
+                        }
+                    ?>
+                </select>
+                <!-- <input type="search" placeholder="buscar solo esa localidad" name="" id=""> -->
+                <button type="submit" class="inp search">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" data-darkreader-inline-fill="" data-darkreader-inline-stroke="" style="--darkreader-inline-fill:currentColor; --darkreader-inline-stroke:currentColor;"><path d="M476.59 227.05l-.16-.07L49.35 49.84A23.56 23.56 0 0027.14 52 24.65 24.65 0 0016 72.59v113.29a24 24 0 0019.52 23.57l232.93 43.07a4 4 0 010 7.86L35.53 303.45A24 24 0 0016 327v113.31A23.57 23.57 0 0026.59 460a23.94 23.94 0 0013.22 4 24.55 24.55 0 009.52-1.93L476.4 285.94l.19-.09a32 32 0 000-58.8z"></path></svg>
                 </button>
             </section>
         </form>
         <a href="contact.html">
-            Poner mi casa 
-            <br>
-            mi restaurante
+            Poner mi<br> casa/restaurante
         </a>
     </div>
 </header>
