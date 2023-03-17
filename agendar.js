@@ -34,6 +34,12 @@ const enviar=async(form)=>{
             },1000)
         })
 }
+document.querySelectorAll(".more").forEach(m =>{
+    m.addEventListener("click", e =>{
+        let el = m.parentElement.parentElement
+        el.style.height=`${el.scrollHeight}px`
+    })
+})
 window.addEventListener("submit",e =>{
     e.preventDefault();
     const tar = e.target;
@@ -67,7 +73,11 @@ window.addEventListener("submit",e =>{
         alert("Por favor especifique una hora o rellene la casiila de 'Todo el Dia'")
         return
     }
-    if(form.evento.length<1 || form.descri.length<1){
+    if(document.querySelector("input[name='radEve']").checked){
+        alert("Por favor Especifique el nombre del evento y una descripcion")
+        return
+    }
+    if(document.querySelector("input[name='radUbi']").checked){
         alert("Por favor Especifique el nombre del evento y una descripcion")
         return
     }

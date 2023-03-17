@@ -12,12 +12,18 @@ const obtenerEvento=async (ide, day, mounth, year)=>{
         })
         .then(res => res.json())
         .then(r => {
+            console.log(r);
             if(r[0].e=='2'){
-                document.querySelector(".eventos").innerHTML=`<p style="padding-top:20px;text-align:center;width:90%;margin:0 auto"> No hay Eventos el dia: ${day} - ${mounth} - ${year} </p>`;
+                document.querySelector(".eventos").innerHTML=`
+                        <div class="eventos-no">
+                            <picture>
+                                <img src="./media/calendar.png" alt="calendario">
+                            </picture>
+                            <b>Hoy no hay Eventos</b>
+                        </div>`;
             } else {
                 mostrarEvento(r);
             }
-            console.log(r);
                 // console.log(JSON.parse(r.replaceAll("][",",")));
             })
         .catch(e => console.log(e))
@@ -36,6 +42,9 @@ document.getElementById("diasc").addEventListener("click",async e =>{
         obtenerEvento(ide, day, mounth, year)
     }
 })
+const compNE = ()=>{
+
+}
 const comp = (f)=>{
     console.log(f);
     return `
@@ -49,7 +58,7 @@ const comp = (f)=>{
             <section class="eveDate">
                 <div>
                     <b>
-                        ${f.i_fecha}
+                        ${f.diasRes}
                     </b>
                 </div>
             </section>
@@ -106,9 +115,7 @@ const comp = (f)=>{
                                 ${f.estado}
                             </b>
                         </p>
-                        <a href="https://www.google.com.mx/maps/search/
-                        link
-                        " target="_blank">Ver en Google Maps</a>
+                        <a href="https://www.google.com.mx/maps/search/${f.dirLink}" target="_blank">Ver en Google Maps</a>
                     </nav>
                 </div>
             </section>
