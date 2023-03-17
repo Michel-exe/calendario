@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-02-2023 a las 23:54:56
+-- Tiempo de generación: 17-03-2023 a las 05:06:02
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -90,7 +90,10 @@ INSERT INTO `fechas` (`id`, `idEvento`, `idUbicacion`, `day`, `mounth`, `year`, 
 (14, 5, 16, '11', '02', '2023', '2023-02-11', '2023-02-11', '', '', '#ffc107'),
 (15, 6, 16, '04', '02', '2023', '2023-02-04', '2023-02-04', '', '', '#007bff'),
 (16, 3, 16, '04', '03', '2023', '2023-03-04', '2023-03-04', '', '', '#da1de7'),
-(17, 5, 16, '09', '02', '2023', '2023-02-09', '2023-02-09', '', '', '#ffc107');
+(17, 5, 16, '09', '02', '2023', '2023-02-09', '2023-02-09', '', '', '#ffc107'),
+(18, 2, 16, '16', '03', '2023', '2023-03-16', '2023-03-16', '21:50', '', '#ec00b9'),
+(19, 2, 16, '24', '03', '2023', '2023-03-24', '2023-03-24', '', '', '#ec00b9'),
+(20, 3, 16, '22', '03', '2023', '2023-03-22', '2023-03-22', '', '', '#dc3545');
 
 -- --------------------------------------------------------
 
@@ -168,7 +171,7 @@ ALTER TABLE `eventos`
 -- AUTO_INCREMENT de la tabla `fechas`
 --
 ALTER TABLE `fechas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `ubicaciones`
