@@ -16,6 +16,7 @@
 <body>
    <div class="pedido">
       <div class="carrusel">
+         <div style="background-image: url(./media/n2.jpg);"></div>
       </div>
       <div class="formulario">
          <form data-usuario="t">

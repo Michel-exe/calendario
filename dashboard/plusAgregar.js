@@ -95,7 +95,7 @@ const comida = ()=>{
     }
     document.querySelector("input[type='button']").addEventListener("click",()=>{
         let [id,fi,pla,tipo,por,tp] = document.forms[0];
-        comidas.innerHTML+=`<section data-id='${id.value}' data-pla='${pla.value}' data-tipo='${tipo.value}' data-por='${por.value}' data-tp='${tp.value}'><b>${pla.value}</b> ${tipo.value} - ${por.value}${tp.value} <span>X</span> </section>`
+        comidas.innerHTML+=`<section data-id='${id.value}' data-pla='${pla.value}' data-tipo='${tipo.value}' data-por='${por.value}' data-tp='${tp.value}'><b>${pla.value}</b><p>${tipo.value} - ${por.value} ${tp.value}</p> <span>X</span> </section>`
         pla.value="";
         pla.focus();
     })

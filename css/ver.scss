@@ -57,14 +57,14 @@
                     "img1 img1 img4 img5"
                 ;
                 gap: .5rem;
-                aspect-ratio: 16 / 4;
+                height: 400px;
                 picture{
                     display: block;
                     &:nth-child(1){ grid-area: img1;}
-                    &:nth-child(2){ grid-area: img2;}
-                    &:nth-child(3){ grid-area: img3;}
-                    &:nth-child(4){ grid-area: img4;}
-                    &:nth-child(5){ grid-area: img5;}
+                    &:nth-child(2){ grid-area: img2; img{height: 200px;} }
+                    &:nth-child(3){ grid-area: img3; img{height: 200px;} }
+                    &:nth-child(4){ grid-area: img4; img{height: 200px;} }
+                    &:nth-child(5){ grid-area: img5; img{height: 200px;} }
                     img{
                         object-fit: cover;
                     }
@@ -131,6 +131,7 @@
                 border-radius: 1rem;
                 box-shadow: 0 0 2px #aaa;
                 width: 100%;
+                background: white;
                 h2{
                     font-size: 1.1rem;
                     span{
@@ -169,6 +170,48 @@
         }
     }
 }
+
+@media (max-width: 700px) {
+    .cuerpo{
+        .estab{
+            .inf-img{
+                nav{
+                    grid-template-columns: repeat(4,1fr);
+                    grid-template-areas:
+                        "img1 img1 img1 img1"
+                        "img2 img3 img4 img5"
+                    ;
+                    picture{
+                        display: block;
+                        &:nth-child(1){ grid-area: img1;height: 250px;}
+                        &:nth-child(2){ grid-area: img2; img{height: 150px;} }
+                        &:nth-child(3){ grid-area: img3; img{height: 150px;} }
+                        &:nth-child(4){ grid-area: img4; img{height: 150px;} }
+                        &:nth-child(5){ grid-area: img5; img{height: 150px;} }
+                        img{
+                            object-fit: cover;
+                        }
+                    }
+                }
+            }
+            .inf{
+                display: flex;
+                flex-direction: column;
+                .inf-pago{
+                    position: sticky;
+                    bottom: 0;
+                    background: white;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
 .pedido{
     display: grid;
     grid-template-columns: 1fr 40%;
@@ -176,6 +219,7 @@
     height: 100vh;
     overflow: hidden;
     .carrusel{
+        width: 100%;
         overflow: hidden;
         display: flex;
         // width: 600%;
@@ -195,8 +239,9 @@
         height: 100vh;
         overflow: auto;
         position: absolute;
-        background: rgb(255,255,255);
-        background: linear-gradient(90deg, #ffffff 30%, #190c0e00 80%);
+        background: rgba(255,255,255,.1);
+        backdrop-filter: blur(5px);
+        // background: linear-gradient(90deg, #ffffff 30%, #190c0e00 80%);
         form{
             width: 100%;
             padding: 2rem 0;
@@ -212,7 +257,7 @@
                         display: block;
                         width: 100%;
                         max-width: 10rem;
-                        background: rgb(0, 183, 18);
+                        background: #202020;
                         padding: .5rem 0;
                         border-radius: .5rem;
                         font-weight: 900;
@@ -278,18 +323,11 @@
                 }
                 .inp{
                     margin-top: .5rem;
-                    label{
-                        font-size: .7rem;}
                     input{
-                        font-size: .9rem;
                         &:focus{
                             border-bottom: 2px solid blue;
                         }
                     }
-                   span{
-                        text-align: end;
-                        font-size: .7rem;
-                   }
                 }
                 .inp-icon{
                     >div{
@@ -321,3 +359,14 @@
     70%,89% { transform: translateX(-60%); }
     90%,100%{transform: translateX(-80%); }
 }
+
+
+
+
+
+
+
+
+
+
+

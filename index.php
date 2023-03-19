@@ -50,9 +50,9 @@
    <footer>
       <a href="./dashboard/index.php">Dadhboard</a>
    </footer>
-   <div class="setting-filtro scl">
-      <div class="filtro">
-         <section class="inp-toogle">
+   <div class="setting-filtro">
+      <form class="filtro">
+         <!-- <section class="inp-toogle">
             <input type="checkbox" data-cat="1" id="chePop">
             <label for="chePop">Populares</label>
             <input type="radio" name="chePop" value="DES"  id="chePopDes" hidden>
@@ -61,11 +61,11 @@
                <label for="chePopDes" class="act"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12 3.75a.75.75 0 01.75.75v13.19l5.47-5.47a.75.75 0 111.06 1.06l-6.75 6.75a.75.75 0 01-1.06 0l-6.75-6.75a.75.75 0 111.06-1.06l5.47 5.47V4.5a.75.75 0 01.75-.75z" clip-rule="evenodd"></path></svg></label>            
                <label for="chePopAsc"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12 20.25a.75.75 0 01-.75-.75V6.31l-5.47 5.47a.75.75 0 01-1.06-1.06l6.75-6.75a.75.75 0 011.06 0l6.75 6.75a.75.75 0 11-1.06 1.06l-5.47-5.47V19.5a.75.75 0 01-.75.75z" clip-rule="evenodd"></path></svg></label>
             </div>
-         </section>
+         </section> -->
          <section class="inp-toogle">
-            <input type="checkbox" data-cat="1" id="cheHab">
+            <input type="checkbox" data-t="habitaciones" data-cat="1" id="cheHab">
             <label for="cheHab">Habitaciones</label>
-            <input type="radio" name="cheHab" value="DES"  id="cheHabDes" hidden>
+            <input type="radio" name="cheHab" value="DES" checked  id="cheHabDes" hidden>
             <input type="radio" name="cheHab" value="ASC"  id="cheHabAsc" hidden>
             <div>
                <label for="cheHabDes" class="act"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12 3.75a.75.75 0 01.75.75v13.19l5.47-5.47a.75.75 0 111.06 1.06l-6.75 6.75a.75.75 0 01-1.06 0l-6.75-6.75a.75.75 0 111.06-1.06l5.47 5.47V4.5a.75.75 0 01.75-.75z" clip-rule="evenodd"></path></svg></label>            
@@ -73,9 +73,9 @@
             </div>
          </section>
          <section class="inp-toogle">
-            <input type="checkbox" data-cat="1" id="chePre">
+            <input type="checkbox" data-t="precio" data-cat="1" id="chePre">
             <label for="chePre">Precio</label>
-            <input type="radio" name="chePre" value="DES" id="chePreDes" hidden>
+            <input type="radio" name="chePre" value="DES" checked id="chePreDes" hidden>
             <input type="radio" name="chePre" value="ASC" id="chePreAsc" hidden>
             <div>
                <label for="chePreDes" class="act"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12 3.75a.75.75 0 01.75.75v13.19l5.47-5.47a.75.75 0 111.06 1.06l-6.75 6.75a.75.75 0 01-1.06 0l-6.75-6.75a.75.75 0 111.06-1.06l5.47 5.47V4.5a.75.75 0 01.75-.75z" clip-rule="evenodd"></path></svg></label>            
@@ -83,9 +83,9 @@
             </div>
          </section>
          <section class="inp-toogle">
-            <input type="checkbox" data-cat="1" id="cheEstrellas">
+            <input type="checkbox" data-t="estrellas" data-cat="1" id="cheEstrellas">
             <label for="cheEstrellas">Estrellas</label>
-            <input type="radio" name="cheEstrellas" value="DES"  id="cheEstrellasDes" hidden>
+            <input type="radio" name="cheEstrellas" value="DES" checked  id="cheEstrellasDes" hidden>
             <input type="radio" name="cheEstrellas" value="ASC"  id="cheEstrellasAsc" hidden>
             <div>
                <label for="cheEstrellasDes" class="act"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12 3.75a.75.75 0 01.75.75v13.19l5.47-5.47a.75.75 0 111.06 1.06l-6.75 6.75a.75.75 0 01-1.06 0l-6.75-6.75a.75.75 0 111.06-1.06l5.47 5.47V4.5a.75.75 0 01.75-.75z" clip-rule="evenodd"></path></svg></label>            
@@ -93,9 +93,9 @@
             </div>
          </section>
          <section class="inp-toogle">
-            <input type="checkbox" data-cat="1" id="cheEstrellas">
+            <input type="checkbox" data-t="localidad" data-cat="1" id="cheEstrellas">
             <label for="chelocal">Localidad</label>
-            <input type="radio" name="chelocal" value="DES"  id="chelocalDes" hidden>
+            <input type="radio" name="chelocal" value="DES" checked  id="chelocalDes" hidden>
             <input type="radio" name="chelocal" value="ASC"  id="chelocalAsc" hidden>
             <div>
                <label for="chelocalDes" class="act"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12 3.75a.75.75 0 01.75.75v13.19l5.47-5.47a.75.75 0 111.06 1.06l-6.75 6.75a.75.75 0 01-1.06 0l-6.75-6.75a.75.75 0 111.06-1.06l5.47 5.47V4.5a.75.75 0 01.75-.75z" clip-rule="evenodd"></path></svg></label>            
@@ -105,82 +105,11 @@
          <section class="submit">
             <button type="submit">Ordenar</button>
          </section>
-         <script>
-         </script>
-      </div>
+      </form>
    </div>
-   <script src="./comp.js"></script>
-   <script>
-      const carga = (b) => {
-         if (b == 0) {
-            document.querySelector(".contenido section").innerHTML = ""
-            return;
-         }
-         let c = "";
-         for (let i = 0; i < 10; i++) {
-            c += comp.componenteCarga();
-         }
-         document.querySelector(".contenido section").innerHTML = c
-      }
-      const agregar = (json) => {
-         const section = document.querySelector(".contenido section");
-         if (json[0].e == '0') {
-            section.classList.add("hams");
-            section.innerHTML = comp.componeneteVacio()
-            return;
-         }
-         section.classList.remove("hams");
-         carga(0);
-         json.map(j => {
-            section.innerHTML += j.idTipo == "1" ? comp.componenteHouse(j) : comp.componenteRest(j);
-         })
-         // carga(0);
-         // section.innerHTML=c;
-      }
-      const traer = async (v) => {
-         carga(1)
-         const d = new FormData();
-         d.append("cat", v || 0)
-         await fetch('./php/get.php', {
-               method: "POST",
-               body: d
-            }).then(r => r.json())
-            .then(res => {
-               console.log(res);
-               agregar(res)
-            })
-            .catch(e => console.log(e))
-      }
-      traer();
-      document.querySelector(".tipos").addEventListener("click", e => {
-         const tar = e.target
-         if (tar.tagName != "SPAN") {
-            return;
-         }
-         tar.parentNode.querySelector(".act").classList.remove("act");
-         tar.classList.add("act")
-         traer(e.target.dataset.i)
-         // console.log(e.target.dataset.i);
-         // let pa = tar.tagName!="SPAN" ? (tar.tagName=="P" || tar.tagName=="B" ? tar.parentNode : ()) : tar;
-      })
-      document.querySelector(".filtro").addEventListener("click", ()=>{
-         document.querySelector(".setting-filtro").classList.toggle("scl")
-      })
-      document.querySelector(".setting-filtro").addEventListener("click", e =>{
-         if(e.target.classList.contains("setting-filtro")){
-            document.querySelector(".setting-filtro").classList.toggle("scl")
-         }
-         if(e.target.tagName=="INPUT"){
-            let pa= e.target.parentNode;
-            if(e.target.dataset.cat){
-               return pa.classList.toggle("act")
-            }
-            pa.querySelector("div label[class='act']").classList.remove("act")
-            document.querySelector(`label[for='${e.target.getAttribute("id")}']`).classList.add("act")
-            // e.target.getAttribute("id")
-         }
-      })
-   </script>
+   <script src="comp.js"></script>
+   <script src="fetc.js"></script>
+   <script src="dom.js"></script>
 </body>
 
 </html>

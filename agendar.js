@@ -17,7 +17,6 @@ const fet = async (url,obj,funcion) => {
  
     obj.map(o =>{
        data.append(o.n,o.v);
-       console.log(o.n +"" +o.v);
     })
  
     await fetch(url, {
@@ -25,6 +24,11 @@ const fet = async (url,obj,funcion) => {
        body: data,
     }) .then(r => r.text())
        .then(res => {
+            if(res==="1"){
+                setTimeout(() => {
+                    window.location.href=window.location.origin+"/airBNB/"
+                }, 5000);
+            }
           console.log(res);
        })
        .catch(e => console.log(e))
@@ -55,6 +59,12 @@ const validarInput = ()=>{
     
     document.querySelector("body").innerHTML+=comp.componenteLoad()
     document.querySelector("body").classList.add("loader");
+    
+    let d = new Date();
+    const p = (d) => {return (d+"").padStart(2,"0")}
+
+    let fecha = `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}`
+    
     const obj=[
         { n:"tipo",   v:"agendar"},
         { n:"llegada", v:inputs.date1.value},
@@ -67,7 +77,9 @@ const validarInput = ()=>{
         { n:"apeM",   v:inputs.apellidoM.value},
         { n:"mail",   v:inputs.mail.value},
         { n:"phone",  v:inputs.phone.value},
+        { n:"fecha", v: fecha}
     ]
+
     fet(`./php/agregar.php`,obj)
 
     document.querySelector(".cont-loader h2").innerHTML="Reservado<br><b>En un lapso de 3 dias nos comunicaremos con usted ya sea por correo o numero de telefono para completar el proceso </b>";

@@ -5,7 +5,7 @@
                 <img src="./media/logo.png" alt="Logo">
             </picture>
         </a>
-        <form method="get" action="./busqueda.php">
+        <form method="get" action="./index.php">
             <section class="inp inp-ser">
                 <select name="loc" id="">
                     <option value='0'>Localidad</option>

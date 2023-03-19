@@ -216,9 +216,9 @@
     backdrop-filter: blur(4px);
     // transition: .5s all ease-in-out;
     user-select: none;
-    transform: scale(1);
+    transform: scale(0);
     &.scl{
-        transform: scale(0);
+        transform: scale(1);
     }
     .filtro{
         margin: auto;

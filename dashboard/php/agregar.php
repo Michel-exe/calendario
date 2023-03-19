@@ -3,9 +3,10 @@
 
     $nombre = $_POST["nombre"];
     $tipo = $_POST["tipo"];
+    $localidad = $_POST["localidad"];
     include("./cn.php");
 
-    $ins = "INSERT INTO general (nombre,idTipo) VALUES ('$nombre','$tipo')";
+    $ins = "INSERT INTO general (nombre,idTipo,idLoc) VALUES ('$nombre','$tipo','$localidad')";
     $resIns=mysqli_query($con,$ins);
     if(!$resIns) die("Hubo un error al insertar en general");
 
@@ -14,7 +15,6 @@
     $genId = $rowID['id'];
     
     if($tipo=="1"){
-        $localidad = $_POST["localidad"];
         $referencias = $_POST["referencias"];
         $precio = $_POST["precio"];
         $habitaciones = $_POST["habitaciones"];
@@ -38,7 +38,6 @@
     
         echo true."|".$genId;
     } else if($tipo=="2"){
-        $localidad =$_POST['localidad'];
         $horaO =$_POST['horaO'];
         $horaC =$_POST['horaC'];
         $serDom =$_POST['serDom'];

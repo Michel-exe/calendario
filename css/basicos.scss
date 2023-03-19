@@ -34,21 +34,15 @@ picture{
     }
 }
 header{
-    padding: .75rem;
+    padding-bottom: 1rem;
     box-shadow: 0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%);
     div{
         width: 90%;
         max-width: 1000px;
         display: grid;
+        align-items: center;
         grid-template-columns: 150px 1fr 150px;
-        a{
-            picture{
-                img{
-                    object-fit: contain;
-                    max-height: 50px;
-                }
-            }
-        }
+        gap: .5rem;
         form{
             .inp-ser{
                 box-shadow: 0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%);
@@ -56,7 +50,14 @@ header{
                 border-radius: 1rem;
             }
         }
+        picture{
+            img{
+                max-height: 2.5rem;
+                object-fit: contain;
+            }
+        }
         a{
+            transform: translateY(.5rem);
             font-size: .74rem;
             text-align: center;
         }
@@ -64,6 +65,9 @@ header{
 }
 
 form{
+    fieldset{
+        border: 0;
+    }
     input[hidden]{
         display: none;
     }
@@ -104,6 +108,22 @@ form{
         select{
             border: 2px solid black;
         }
+        
+        margin-top: 1rem;
+        label{font-size: .7rem;}
+        input{font-size: .7rem;}
+        input[type=button],input[type=submit]{font-size: .7rem;}
+        select{font-size: .7rem;}
+        button{font-size: .7rem;}
+        span{
+             text-align: end;
+             font-size: .7rem;
+        }
+        &.inp-are{
+         textarea{
+              min-height: 4rem;
+         }
+        }
         &.inp-ser{
             display: grid;
             grid-template-columns: 1fr 1fr 50px;
@@ -141,4 +161,34 @@ form{
 }
 
 
+@media (max-width: 700px) {
+    html{
+        font-size: 15px;
+    }
+    header{
+        padding: .5rem 0 ;
+        position: sticky;
+        top: -3rem;
+        z-index: 6;
+        background: white;
+        div{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: "logo img""form form";
+            gap: .5rem;
+            form{
+                margin-top: 0;
+                grid-area: form;
+                .inp{
+                    margin-top: 0;
+                }
+            }
+            a{
+                transform: translateY(0);
+                &:nth-child(1){grid-area: logo;}
+                &:nth-child(2){grid-area: img;}
+            }
+        }
+    }
+}
 

@@ -11,10 +11,10 @@
     $apeM = $_POST['apeM'];
     $mail = $_POST['mail'];
     $phone = $_POST['phone'];
-
+    $fecha = $_POST['fecha'];
 
     include("./cn.php");
-    $senUser = "INSERT INTO usuario (nombre, apellidoP, apellidoM, correoGoogle, telefono) VALUES ('$nombre','$apeP','$apeM','$mail','$phone')";
+    $senUser = "INSERT INTO usuario (usuario, apellidoP, apellidoM, correoGoogle, telefono) VALUES ('$nombre','$apeP','$apeM','$mail','$phone')";
     $resUser=mysqli_query($con,$senUser);
     if(!$resUser) die("Hubo un error al insertar en usuarios");
 
@@ -22,7 +22,7 @@
     $rowID = mysqli_fetch_array($resID);
     $userId = $rowID['idUser'];
 
-    $senRes ="INSERT INTO reservaciones (idUser, id, adultos, ninos, llegada, salida, restante, status) VALUES ('$userId','$ide','$a','$n','$hl','$hs','0','1')";
+    $senRes ="INSERT INTO reservaciones (idUser, id, adultos, ninos, llegada, salida, fecha, fechaAutorizacion, restante, status) VALUES ('$userId','$ide','$a','$n','$hl','$hs','$fecha','','0','1')";
     $resRes=mysqli_query($con,$senRes);
     if(!$resRes) die("Hubo un error al insertar en reservaciones");
 

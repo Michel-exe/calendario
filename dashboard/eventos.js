@@ -37,13 +37,13 @@ const agregar2 = ()=>{
     const sectList = document.querySelector(".sect-list");
 
     agregar.addEventListener("click", e =>{
-        const inp = e.target.previousElementSibling.previousElementSibling;
+        console.log(e.target);
+        const inp = e.target.previousElementSibling;
 
         if(inp.value.length==0){ inp.focus(); return;}
 
         sectList.innerHTML+=compServ(0,inp.value);
         inp.value=""
-        e.target.previousElementSibling.querySelector("b").textContent="0"
         inp.focus();
     })
     sectList.addEventListener("click", e =>{
