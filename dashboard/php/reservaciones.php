@@ -42,7 +42,15 @@ if ($t == "cancel") {
     $sen = "UPDATE reservaciones SET status='0' WHERE idRes='{$ide}'";
 }
 if ($t == "trash") {
-    $sen = "DELETE FROM reservaciones WHERE idRes='{$ide}'";
+    $idUser = mysqli_query($con,"SELECT idUser FROM reservaciones WHERE idRes='$ide'");
+    $rowID = mysqli_fetch_array($idUser);
+    $userId = $rowID['idUser'];
+    
+    $delUser = "DELETE FROM usuario WHERE idUser='$userId'";
+    $res = mysqli_query($con, $delUser);
+    if (!$res) die("Error al eliminar el ususario");
+
+    $sen = "DELETE FROM reservaciones WHERE idRes='$ide'";
 }
 
 if ($sen == "") die();

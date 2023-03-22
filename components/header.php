@@ -5,9 +5,9 @@
                 <img src="./media/logo.png" alt="Logo">
             </picture>
         </a>
-        <form method="get" action="./index.php">
+        <form method="get" action="./buscar.php">
             <section class="inp inp-ser">
-                <select name="loc" id="">
+                <select name="loc" id="loc">
                     <option value='0'>Localidad</option>
                     <?php 
                         $res = mysqli_query($con, "SELECT * FROM localidad");
@@ -16,7 +16,7 @@
                         }
                     ?>
                 </select>
-                <select name="tip" id="">
+                <select name="tip" id="tip">
                     <option value='0'>Tipo</option>
                     <?php 
                         $res = mysqli_query($con, "SELECT * FROM reftipos");

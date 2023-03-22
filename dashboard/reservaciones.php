@@ -24,7 +24,6 @@ while ($r = mysqli_fetch_array($res)) {
    <link rel="stylesheet" href="../css/dashboard.css">
    <title>Reservaciones</title>
 </head>
-
 <body>
    <div class="cont">
       <?php require("./components/header.php"); ?>
@@ -92,7 +91,7 @@ while ($r = mysqli_fetch_array($res)) {
                            // echo $diff->days . ' days ';
                            echo "
                   <div data-us='{$r['idUser']}' data-reser='{$r['idRes']}' data-house='{$r['id']}'>
-                     <section>{$r['usuario']}</section>
+                     <section>{$r['usuario']} - {$r['idUser']} - {$r['idRes']}</section>
                      <section>{$r['nombre']}</section>
                      <section>{$r['llegada']}</section>
                      <section>{$r['salida']}</section>
@@ -184,94 +183,94 @@ while ($r = mysqli_fetch_array($res)) {
                   </section>
                </div>
             </div>
-            <script src="./form.js"></script>
-            <script>
-               document.querySelector("select").addEventListener("change", e => {
-                  const val = e.target.value
-                  window.location.href = `${window.location.origin}${window.location.pathname}?t=${val}`
-               })
-               const resUser = document.querySelector(".reser-user")
-               resUser.addEventListener("click", e => {
-                  if (e.target.classList.contains("reser-user")) {
-                     resUser.classList.toggle("act")
-                  }
-               })
-               document.querySelector(".tabla").addEventListener("click", e => {
-                  const t = e.target;
-                  if (t.tagName == "SPAN") {
-                     const tp = t.dataset.type;
-                     let obj = []
-                     if (tp == "acept") {
-                        if (!window.confirm("¿Esta segur@ de aceptar el elemento?")) {
-                           return
-                        }
-                     }
-                     if (tp == "pencil") {
-                        alert("Redireeccionando")
-                     }
-                     if (tp == "pagar") {
-                        const prom = window.prompt("Escriba la cantidad que va a pagar")
-                        if (prom.length == 0 || !/\d{1,6}$/.test(prom)) return alert("Escriba un numero valido")
-                        obj.push({
-                           n: "pago",
-                           v: prom
-                        });
-                     }
-                     if (tp == "cancel") {
-                        if (!window.confirm("¿Esta segur@ de aceptar el elemento?")) {
-                           return
-                        }
-                     }
-                     if (tp == "trash") {
-                        if (!window.confirm("¿Esta segur@ de eliminar el elemento?")) {
-                           return
-                        }
-                     }
-                     if (tp == "info") {
-                        const resUserSec = resUser.querySelector("section");
-                        resUserSec.children[0].querySelector("b").innerHTML = t.dataset.name
-                        resUserSec.children[1].querySelector("b").innerHTML = t.dataset.apellidos
-                        resUserSec.children[2].querySelector("b").innerHTML = t.dataset.fecha
-
-                        resUserSec.children[3].querySelector("a").setAttribute("href", `tel:+52${t.dataset.phone}`)
-                        resUserSec.children[3].querySelector("b").innerHTML = t.dataset.phone
-
-                        resUserSec.children[4].querySelector("b").innerHTML = t.dataset.mail
-                        resUserSec.children[4].querySelector("a").setAttribute("href", `mailto:${t.dataset.mail}`)
-
-                        document.querySelector(".reser-user").classList.toggle("act");
-
-                        const resUserSecD = resUser.querySelector("form");
-                        resUserSecD.children[0].querySelector("input").value = t.dataset.llegada
-                        resUserSecD.children[1].querySelector("input").value = t.dataset.salida
-
-                     }
-
-                     obj.push({
-                        n: "type",
-                        v: tp
-                     }, {
-                        n: "ide",
-                        v: t.parentNode.dataset.reser
-                     })
-                     console.log(obj);
-                     fet(
-                        "./php/reservaciones.php",
-                        obj,
-                        (res) => {
-                           console.log(res);
-                           window.location.href = `${window.location.origin}${window.location.pathname}`
-                        }
-                     )
-
-                     // console.log(t.dataset.type);
-                  }
-               })
-            </script>
          </div>
       </div>
+      <?php require("./components/load.php"); ?>
    </div>
+   <script src="./form.js"></script>
+   <script>
+      document.querySelector("select").addEventListener("change", e => {
+         const val = e.target.value
+         window.location.href = `${window.location.origin}${window.location.pathname}?t=${val}`
+      })
+      const resUser = document.querySelector(".reser-user")
+      resUser.addEventListener("click", e => {
+         if (e.target.classList.contains("reser-user")) {
+            resUser.classList.toggle("act")
+         }
+      })
+      document.querySelector(".tabla").addEventListener("click", e => {
+         const t = e.target;
+         if (t.tagName == "SPAN") {
+            document.querySelector(".cont-load").classList.add("act")
+            const tp = t.dataset.type;
+            let obj = []
+            if (tp == "acept") {
+               if (!window.confirm("¿Esta segur@ de aceptar el elemento?")) {
+                  return
+               }
+            }
+            if (tp == "pencil") {
+               alert("Redireeccionando")
+            }
+            if (tp == "pagar") {
+               const prom = window.prompt("Escriba la cantidad que va a pagar")
+               if (prom.length == 0 || !/\d{1,6}$/.test(prom)) return alert("Escriba un numero valido")
+               obj.push({
+                  n: "pago",
+                  v: prom
+               });
+            }
+            if (tp == "cancel") {
+               if (!window.confirm("¿Esta segur@ de aceptar el elemento?")) {
+                  return
+               }
+            }
+            if (tp == "trash") {
+               if (!window.confirm("¿Esta segur@ de eliminar el elemento?")) {
+                  return
+               }
+            }
+            if (tp == "info") {
+               const resUserSec = resUser.querySelector("section");
+               resUserSec.children[0].querySelector("b").innerHTML = t.dataset.name
+               resUserSec.children[1].querySelector("b").innerHTML = t.dataset.apellidos
+               resUserSec.children[2].querySelector("b").innerHTML = t.dataset.fecha
 
+               resUserSec.children[3].querySelector("a").setAttribute("href", `tel:+52${t.dataset.phone}`)
+               resUserSec.children[3].querySelector("b").innerHTML = t.dataset.phone
+
+               resUserSec.children[4].querySelector("b").innerHTML = t.dataset.mail
+               resUserSec.children[4].querySelector("a").setAttribute("href", `mailto:${t.dataset.mail}`)
+
+               document.querySelector(".reser-user").classList.toggle("act");
+
+               const resUserSecD = resUser.querySelector("form");
+               resUserSecD.children[0].querySelector("input").value = t.dataset.llegada
+               resUserSecD.children[1].querySelector("input").value = t.dataset.salida
+
+            }
+
+            obj.push({
+               n: "type",
+               v: tp
+            }, {
+               n: "ide",
+               v: t.parentNode.dataset.reser
+            })
+            console.log(obj);
+            fet(
+               "./php/reservaciones.php",
+               obj,
+               (res) => {
+                  console.log(res);
+                  window.location.href = `${window.location.origin}${window.location.pathname}`
+               }
+            )
+
+            // console.log(t.dataset.type);
+         }
+      })
+   </script>
 </body>
-
 </html>

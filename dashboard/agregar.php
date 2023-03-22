@@ -2,7 +2,7 @@
 if (!isset($_GET['t'])) header("location:../error.html");
 $get = $_GET['t'];
 
-$nom = $get == '1' ? 'airBNB' : 'restaurante';
+$nom = $get == '1' ? 'NanaHouse' : 'NanaFood';
 $form = $get == '1' ? 'h' : 'r';
 
 include("./php/cn.php");
@@ -33,7 +33,7 @@ while ($r = mysqli_fetch_array($res)) {
          <div class="cont-body">
             <form action="" data-t="<?php echo $form ?>">
                <fieldset>
-                  <h3>Nombre del <?php echo $nom ?></h3>
+                  <h3>Nombre de <?php echo $nom ?></h3>
                   <div>
                      <section class="inp inp-nor">
                         <label require>Nombre: </label>
@@ -45,7 +45,7 @@ while ($r = mysqli_fetch_array($res)) {
                   </div>
                </fieldset>
                <fieldset>
-                  <h3>Detalles del <?php echo $nom ?></h3>
+                  <h3>Detalles de <?php echo $nom ?></h3>
                   <?php if ($get == '1') { ?>
                      <div>
                         <section class="inp inp-sel">

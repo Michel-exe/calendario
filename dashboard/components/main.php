@@ -4,7 +4,8 @@
             <h2>Reservaciones</h2>
         </div>
         <div>
-            <a href="./reservaciones.php">Ver reservaciones</a>
+            <a href="./reservaciones.php">reservaciones NanaFood</a>
+            <a href="./reservaciones.php">reservaciones NanaHouse</a>
         </div>
     </section>
     <section>

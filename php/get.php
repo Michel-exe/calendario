@@ -1,44 +1,7 @@
 <?php
 include("./cn.php");
-function sentenciaBus($cat,$var,$tipo,$loc){
-    $orden ="";
+include("./sentencias.php");
 
-    $catID = $cat=='h' ? '1' : ($cat=='r' ? '2' : '3');
-    $cad = $tipo!='0' ? "idTipo={$catID}" : "";
-    $cad.= $loc!='0' ?  "and idLoc={$loc}" : "";
-
-    $senHouse= "SELECT g.id,g.nombre,g.idTipo,h.refer,h.precio,h.habitaciones,h.status,h.estrellas,l.localidad 
-        FROM general as g 
-        JOIN house as h ON g.id=h.idHouse
-        JOIN localidad as l ON h.idLoc=l.idLoc
-        WHERE {$cad};";
-    $senRes="SELECT g.id,g.nombre,g.idTipo,a.horariosO,a.horariosC,a.refer,a.servDom,ca.categoria,l.localidad FROM general as g 
-        JOIN alimentos as a ON g.id=a.idAlimentos
-        JOIN catealimentos as ca ON a.idCat=ca.idCat
-        JOIN localidad as l ON a.idLoc=l.idLoc
-        WHERE {$cad};";
-
-    return $cat=="h" ? $senHouse : $senRes;
-}
-function sentencias($cat,$var,$tipo){
-    $orden ="";
-
-    $catID = $cat=='h' ? '1' : ($cat=='r' ? '2' : '3');
-    $cad = $tipo==1 ? "idTipo={$catID}" : "id={$var}";
-
-    $senHouse= "SELECT g.id,g.nombre,g.idTipo,h.refer,h.precio,h.habitaciones,h.status,h.estrellas,l.localidad 
-        FROM general as g 
-        JOIN house as h ON g.id=h.idHouse
-        JOIN localidad as l ON h.idLoc=l.idLoc
-        WHERE {$cad};";
-    $senRes="SELECT g.id,g.nombre,g.idTipo,a.horariosO,a.horariosC,a.refer,a.servDom,ca.categoria,l.localidad FROM general as g 
-        JOIN alimentos as a ON g.id=a.idAlimentos
-        JOIN catealimentos as ca ON a.idCat=ca.idCat
-        JOIN localidad as l ON a.idLoc=l.idLoc
-        WHERE {$cad};";
-
-    return $cat=="h" ? $senHouse : $senRes;
-}
 $cat = isset($_POST['cat']) ? $_POST['cat'] : "0";
 $arr = array('t','h','r','c','a');
 if($cat != "0"){
@@ -96,28 +59,6 @@ if($cat != "0"){
     die();
 }
 
-if(isset($_GET['loc']) && isset($_GET['tip'])){
-    // if(($_GET['loc']=='0') && ($_GET['tip']=='0')) break;
-
-    $tip = $_GET['tip'];
-    $loc = $_GET['loc'];
-    echo $loc." - ".$tip."\n";
-
-    $cad="";
-    $cad.= $tip!='0' ? " idTipo={$tip} " : "";
-    $cad.= ($loc!='0' and $tip!='0') ? " and " : "";
-    $cad.= $loc!='0' ?  " h.idLoc={$loc} " : "";
-    echo $cad;
-
-    $sen ="SELECT id,idTipo FROM general as g 
-        JOIN house as h ON g.id=h.idHouse
-        JOIN localidad as l ON h.idLoc=l.idLoc
-    WHERE g.idTipo='1' AND l.idLoc='5';";
-    $res = mysqli_query($con, $sen);
-    $r = mysqli_fetch_array($res);
-    var_dump($r);
-    die();
-}
 $sen ="SELECT id,idTipo FROM general limit 30";
 $res = mysqli_query($con, $sen);
 $json = array();
@@ -136,7 +77,7 @@ while ($r = mysqli_fetch_array($res)) {
                 'precio' => $rh['precio'],
                 'habitaciones' => $rh['habitaciones'],
                 'status' => $rh['status'],
-                'estrellas' => $rh['estrellas'],
+                'estrellas' => $rh['stars'],
                 'localidad' => $rh['localidad'],
             );
         }
@@ -154,7 +95,7 @@ while ($r = mysqli_fetch_array($res)) {
                 'horariosO' => $rr['horariosO'],
                 'horariosC' => $rr['horariosC'],
                 'servDom' => $rr['servDom'],
-                'categoria' => $rr['categoria'],
+                'estrellas' => $rr['stars'],
                 'categoria' => $rr['categoria'],
                 'localidad' => $rr['localidad'],
             );

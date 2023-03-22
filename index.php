@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +9,6 @@
    <link rel="stylesheet" href="./css/index.css">
    <title>NanaHouse</title>
 </head>
-
 <body>
    <?php include("./php/cn.php"); ?>
    <?php include('./components/header.php') ?>
@@ -107,9 +105,12 @@
          </section>
       </form>
    </div>
-   <script src="comp.js"></script>
-   <script src="fetc.js"></script>
-   <script src="dom.js"></script>
+   <script src="./js/comp.js"></script>
+   <script src="./js/rutas.js"></script>
+   <script src="./js/peticion.js"></script>
+   <script src="./js/traer.js"></script>
+   <script src="./js/index.js"></script>
+   <script src="./js/dom.js"></script>
 </body>
 
 </html>
