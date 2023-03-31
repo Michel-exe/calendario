@@ -52,6 +52,12 @@ if ($t == "trash") {
 
     $sen = "DELETE FROM reservaciones WHERE idRes='$ide'";
 }
+if ($t == "update") {
+    $llegada = $_POST['llegada'];
+    $salida = $_POST['salida'];
+
+    $sen = "UPDATE reservaciones SET llegada='{$llegada}',salida='{$salida}' WHERE idRes='$ide'";
+}
 
 if ($sen == "") die();
 

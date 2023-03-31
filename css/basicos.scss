@@ -124,6 +124,58 @@ form{
               min-height: 4rem;
          }
         }
+        &.inp-img{
+            >label{
+                width: 15rem;
+                height: 15rem;
+                div{
+                    width: 90%;
+                    height: 90%;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: #eee;
+                    overflow: hidden;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                    span{
+                        font-size: 11rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                }
+                // label{
+                //     width: 10rem;
+                //     text-align: center;
+                //     font-size: 1rem;
+                //     margin-top: .5rem;
+                //     padding: .5rem;
+                //     border-radius: .5rem;
+                //     background: #eee;
+                // }
+            }
+            input{
+                background: none;
+            }
+        }
+        
+    //     <section class="inp inp-img">
+    //     <label for="file">
+    //        <div>
+    //           <input type="file" id="file">
+    //           <span>
+    //              <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+    //           </span>
+    //        </div>
+    //        <label>Subir Foto </label>
+    //     </label>
+    //  </section>
+
         &.inp-ser{
             display: grid;
             grid-template-columns: 1fr 1fr 50px;
@@ -156,6 +208,24 @@ form{
                     border: 0;
                 }
             }
+        }
+        &.inp-check,&.inp-terminos{
+            display: grid;
+            align-items: center;
+            grid-template-columns: 1.5rem 1fr;
+            justify-content: flex-start;
+            input{
+                width: 1rem;
+                height: 1rem;
+            }
+            label{
+                width: 100%;
+            }
+        }
+        &.inp-terminos{
+            border-top: 1px solid #bbb;
+            padding-top: 1rem;
+            margin-top: .5rem;
         }
     }
 }

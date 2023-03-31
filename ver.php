@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
    <meta charset="UTF-8">
@@ -10,7 +10,6 @@
    <link rel="stylesheet" href="./css/ver.css">
    <script src="./js/eventos.js"></script>
    <script src="http://momentjs.com/downloads/moment.min.js"></script>
-   <script src="./js/ver.js"></script>
    <title>NanaHouse</title>
 </head>
 
@@ -18,8 +17,17 @@
    <?php
    if (!isset($_GET['ide'])) die('Peticion Denegada');
    include("./php/cn.php");
-
    $ide = $_GET['ide'];
+
+
+   $pop= "SELECT pop FROM general WHERE id={$ide}";
+   $resPop = mysqli_query($con, $pop);
+   $pop = mysqli_fetch_array($resPop)['pop'];
+   $pop=$pop+1;
+
+   $updPop= "UPDATE general SET pop={$pop} WHERE id={$ide}";
+   $resPop = mysqli_query($con, $updPop);
+   if(!$resPop) die("Error al actualizar");
 
    $sen = "SELECT idTipo FROM general WHERE id={$ide}";
    $res = mysqli_query($con, $sen);
@@ -153,9 +161,6 @@
             </div>
          </div>
       </div>
-      <script>
-         ver.house();
-      </script>
    <?php } else if ($tipo == "2") {
       $senImg = "SELECT src FROM imagenes WHERE id={$ide} LIMIT 5";
       $senSer = "SELECT * FROM platillos WHERE idAlimentos={$ide}";
@@ -291,7 +296,14 @@
             </div>
          </div>
       </div>
-   <?php } ?>
+      <?php } ?>
+      <script src="./js/ver.js"></script>
+   <?php if ($tipo == "1") {
+      echo "<script>ver.house(); </script> ";
+   } else if ($tipo == "2") {
+      // echo " <script>ver.house(); </script> ";
+   }
+   ?>
 </body>
 
 </html>

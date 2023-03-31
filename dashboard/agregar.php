@@ -23,7 +23,7 @@ while ($r = mysqli_fetch_array($res)) {
    <link rel="stylesheet" href="../css/basicos.css">
    <link rel="stylesheet" href="../css/dashboard.css">
    <link rel="stylesheet" href="../css/loader.css">
-   <script src="./eventos.js"></script>
+   <script src="./js/eventos.js"></script>
 </head>
 <body>
    <div class="cont">
@@ -146,6 +146,6 @@ while ($r = mysqli_fetch_array($res)) {
          </div>
       </div>
    </div>
-   <script src="./form.js"></script>
+   <script src="./js/form.js"></script>
 </body>
 </html>

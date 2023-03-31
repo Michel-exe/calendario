@@ -4,8 +4,8 @@
             <h2>Reservaciones</h2>
         </div>
         <div>
-            <a href="./reservaciones.php">reservaciones NanaFood</a>
-            <a href="./reservaciones.php">reservaciones NanaHouse</a>
+            <a href="./reservaciones.php">NanaFood</a>
+            <a href="./reservaciones.php">NanaHouse</a>
         </div>
     </section>
     <section>
@@ -13,8 +13,9 @@
             <h2>Agregar</h2>
         </div>
         <div>
-            <a href="./agregar.php?t=1">Agregar House</a>
-            <a href="./agregar.php?t=2">Agregar Restaurante</a>
+            <a href="./agregar.php?t=1">House</a>
+            <a href="./agregar.php?t=2">Restaurante</a>
+            <a href="./agregarPromotor.php">Promotor</a>
         </div>
     </section>
     <section>
@@ -24,6 +25,7 @@
         <div>
             <a href="#">House</a>
             <a href="#">Restaurantes</a>
+            <a href="./promotores.php">Promotores</a>
         </div>
     </section>
     <section>

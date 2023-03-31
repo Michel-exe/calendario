@@ -55,13 +55,15 @@ const agregar2 = ()=>{
 const inpEve = e =>{
     const tar = e.target;
     if((tar.tagName=="INPUT" || tar.tagName=="TEXTAREA") && tar.classList.contains("inpEvent")){
-        let bro;
+        let bro = ! tar.classList.contains("inpIco") 
+                  ? tar.nextElementSibling 
+                  : tar.parentElement.parentElement;
+        const b = bro.querySelector("b")
         try {
-            bro = tar.nextElementSibling.querySelector("b")
+            b.textContent=tar.value.length
         } catch (error) {
-            bro = tar.parentNode.nextElementSibling.querySelector("b")
+            console.log(error);
         }
-        bro.textContent=tar.value.length
     }
 }
 window.addEventListener("keyup", e => inpEve(e))

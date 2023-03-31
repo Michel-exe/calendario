@@ -25,7 +25,6 @@
 </header>
 <script>
    document.querySelector("header >div span").addEventListener("click", e=>{
-      console.log(e.target);
       document.querySelector(".cont").classList.toggle("act");
    })
 </script>

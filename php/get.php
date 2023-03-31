@@ -20,7 +20,7 @@ if($cat != "0"){
                 'precio' => $r['precio'],
                 'habitaciones' => $r['habitaciones'],
                 'status' => $r['status'],
-                'estrellas' => $r['estrellas'],
+                'estrellas' => $r['stars'],
                 'localidad' => $r['localidad'],
             );
         }
@@ -59,7 +59,7 @@ if($cat != "0"){
     die();
 }
 
-$sen ="SELECT id,idTipo FROM general limit 30";
+$sen ="SELECT id,idTipo,pop FROM general ORDER BY pop DESC limit 50";
 $res = mysqli_query($con, $sen);
 $json = array();
 while ($r = mysqli_fetch_array($res)) {

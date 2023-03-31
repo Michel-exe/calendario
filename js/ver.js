@@ -1,5 +1,16 @@
 const ver ={
     house: ()=>{
+        const obtPrecio = ()=>{
+            const precio = document.getElementById("precio");
+            const form = document.querySelector(".inf-pago form");
+            const pre = form.dataset.pre;
+            const [f,inp1,inp2] = document.forms[1];
+        
+            const dif = moment(inp2.value).diff(moment(inp1.value), 'days')
+        
+            precio.children[0].children[1].innerHTML=`x ${dif} dia(s)`;
+            precio.children[1].innerHTML="Total de: $"+(dif*parseInt(pre))+".00 MXN";
+        }
         const changeDate = (form,v)=>{
             const h = v!=undefined ? new Date(v) : new Date() 
         
@@ -19,17 +30,6 @@ const ver ={
             form[2].value=`${anio}-${mes2}-${dia2}`;
             
             obtPrecio();
-        }
-        const obtPrecio = ()=>{
-            const precio = document.getElementById("precio");
-            const form = document.querySelector(".inf-pago form");
-            const pre = form.dataset.pre;
-            const [f,inp1,inp2] = document.forms[1];
-        
-            const dif = moment(inp2.value).diff(moment(inp1.value), 'days')
-        
-            precio.childNodes[0].childNodes[1].innerHTML=`x ${dif} dia(s)`;
-            precio.childNodes[1].innerHTML="Total de: $"+(dif*parseInt(pre))+".00 MXN";
         }
         window.addEventListener("DOMContentLoaded",() =>{ changeDate(document.forms[1]) })
         document.querySelector(".inf-pago form").addEventListener("input", e =>{

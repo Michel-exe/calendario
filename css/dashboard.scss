@@ -67,6 +67,7 @@ main{
     &.act{
         main{
             width: 18rem;
+            opacity: 1;
         }
         .hamburger{
             svg {
@@ -83,6 +84,7 @@ main{
     }
     main{
         width: 0rem;
+        opacity: 0;
         // left: -100vh;
         // top: 0;
         // position: absolute;
@@ -95,16 +97,17 @@ main{
         grid-column-start: 1;
         grid-column-end: 3;
         background: rgb(99, 117, 255);
+        // background: rgb(99, 117, 0);
         width: 100%;
         height: 60px;
         display: flex;
-        align-items: center;
         >div{
             width: 95%;
+            height: 60px;
             display: grid;
-            grid-template-columns: 1fr 100px;
-            align-items: center;
-            span{
+            place-items: center;
+            grid-template-columns: 1fr 8rem;
+            >span{
                 width: 100%;
                 text-align: left;
             }
@@ -112,9 +115,10 @@ main{
                 width: 100%;
                 display: flex;
                 gap: .5rem;
-                span{
+                span,a{
                     color: white;
                     cursor: pointer;
+                    font-size: 1rem;
                 }
             }
         }
@@ -426,6 +430,20 @@ form{
         border: 1px solid #999;
         padding: 1rem;
         border-radius: 1rem;
+        .tablaProm{
+            .tabla-cat,.tabla-inf > div{
+                width: 100%;
+                display: grid;
+                grid-template-columns: 8rem 6rem 8rem 5rem 5rem 8rem 4rem;
+                section{
+                    img{
+                        width: 5rem;
+                        height: 5rem;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
         .tabla{
             border-radius: .5rem;
             max-height: 70vh;
@@ -514,7 +532,8 @@ form{
     .reser-user{
         width: 100%;
         height: 100vh;
-        position: absolute;
+        overflow: hidden;
+        position: fixed;
         left: 0;
         top: 0;
         background: rgba(197, 197, 197, 0.345);
@@ -527,6 +546,7 @@ form{
             width: 90%;
             max-width: 500px;
             height: 90vh;
+            overflow: auto;
             margin: auto;
             border-radius: 1rem;
             background: white;
@@ -594,6 +614,7 @@ form{
         }
         &.act{
             main{
+                min-width: 100%;
                 position: absolute;
                 left: 0;
             }

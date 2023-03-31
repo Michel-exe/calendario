@@ -8,7 +8,8 @@ const exp = {
     mail: /[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
     hora: /\d{1,2}:\d{1,2}$/,
     phone: /\d{7,12}$/,
-    ide: /\d{1,5}$/
+    ide: /\d{1,5}$/,
+    bol: /true|false$/
 }
 const funcError = (e) => {
     e.parentNode.classList.add("error")
@@ -29,6 +30,7 @@ const validarInput = async (e) => {
                 apellidoM: form[e+3],
                 mail: form[e+4],
                 phone: form[e+5],
+                whatsapp: form[e+6],
                 ide: window.location.search.split("ide=")[1].split("&")[0]
             }
         },
@@ -61,6 +63,7 @@ const validarInput = async (e) => {
             ]);
 
             const inputError = v.find(f => f!=undefined )
+            console.log(inputError);
 
             if(inputError!= undefined){
                 alert("Error al registrarse, complete los campos correctamente");
@@ -80,6 +83,7 @@ const validarInput = async (e) => {
                 { n: "apeM", v: inputs.d.apellidoM.value },
                 { n: "mail", v: inputs.d.mail.value },
                 { n: "phone", v: inputs.d.phone.value },
+                { n: "whatssapp", v: inputs.d.whatsapp.checked },
                 { n: "fecha", v: valid.obtFecha() }
             ];
 
@@ -107,6 +111,7 @@ const validarInput = async (e) => {
             ]);
 
             const inputError = v.find(f => f!=undefined )
+            console.log(inputError);
             if(inputError!= undefined){
                 alert("Error al registrarse, complete los campos correctamente");
                 funcError(inputError);
@@ -127,6 +132,7 @@ const validarInput = async (e) => {
                 { n: "apeM", v: inputs.d.apellidoM.value },
                 { n: "mail", v: inputs.d.mail.value },
                 { n: "phone", v: inputs.d.phone.value },
+                { n: "whatsapp", v: inputs.d.whatsapp.checked },
                 { n: "fecha", v: valid.obtFecha() }
             ];
         }
@@ -134,7 +140,9 @@ const validarInput = async (e) => {
     const obj = e.target.dataset.form=="h" ? valid.house() : valid.restaurant();
     if (!obj) return
 
-    document.querySelector(".cont-loader h2").innerHTML = "Reservado<br><b>En un lapso de 3 dias nos comunicaremos con usted ya sea por correo o numero de telefono para completar el proceso </b>";
+    console.log(obj);
+
+    document.querySelector(".cont-loader h2").innerHTML = "Reservado<br><b>En unos momentos, (dependiendo de la saturacion del servicio) nos comunicaremos con usted ya sea por correo o numero de telefono para completar el proceso </b>";
 
     await peticion(ruta.agregar, obj, res => {
         if (res == "1") {
@@ -148,5 +156,7 @@ const validarInput = async (e) => {
 }
 window.addEventListener("submit", e => {
     e.preventDefault();
-    if (e.target.dataset.usuario) { validarInput(e) }
+    if(!document.getElementById("terminos").checked) return alert("Por favor acepte los terminos y condiciones")
+    
+    if (e.target.dataset.usuario) validarInput(e);
 })

@@ -6,7 +6,7 @@
     $localidad = $_POST["localidad"];
     include("./cn.php");
 
-    $ins = "INSERT INTO general (nombre,idTipo,idLoc) VALUES ('$nombre','$tipo','$localidad')";
+    $ins = "INSERT INTO general (nombre,idTipo,idLoc,stars,pop) VALUES ('$nombre','$tipo','$localidad','5','0')";
     $resIns=mysqli_query($con,$ins);
     if(!$resIns) die("Hubo un error al insertar en general");
 
