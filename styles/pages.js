@@ -46,7 +46,7 @@ const StylesMapa = StyleSheet.create({
 		fontSize: SIZES.large,
 		letterSpacing: 2,
 		fontWeight: 'bold',
-		color: COLORS.text
+		color: COLORS.tertiary
 	}
 })
 const StyleMenuLateral = StyleSheet.create({
@@ -60,7 +60,7 @@ const StyleMenuLateral = StyleSheet.create({
 	},
 	header: {
 		height: 70,
-		backgroundColor: COLORS.second,
+		backgroundColor: COLORS.primary,
 	},
 	imgLogo: {
 		width: .7 * width,
@@ -72,14 +72,14 @@ const StyleMenuLateral = StyleSheet.create({
 	lista: {
 		width: '100%',
 		height: '100%',
-		backgroundColor: COLORS.second,
+		backgroundColor: COLORS.primary,
 		...SHADOWS.medium,
 		paddingBottom: .5 * height,
 	},
 	contlista: {
 		width: '90%',
 		left: '5%',
-		borderBottomColor: COLORS.primary,
+		borderBottomColor: COLORS.second,
 		marginBottom: 15,
 		paddingBottom: 15,
 		borderBottomWidth: 2,
@@ -89,7 +89,7 @@ const StyleMenuLateral = StyleSheet.create({
 		fontWeight: 'bold',
 		letterSpacing: 3,
 		marginBottom: 10,
-		color: COLORS.white
+		color: COLORS.tertiary
 	},
 	listaElement: {
 		// width: '95%',
@@ -102,7 +102,7 @@ const StyleMenuLateral = StyleSheet.create({
 		fontWeight: 'bold',
 		letterSpacing: 3,
 		color: COLORS.black2,
-		backgroundColor: COLORS.primary,
+		backgroundColor: COLORS.second,
 		borderRadius: RADIUS.xlarge,
 		padding: 15,
 	},
@@ -125,14 +125,13 @@ const StyleFooter = StyleSheet.create({
 		borderTopRightRadius: RADIUS.large,
 		...SHADOWS.medium,
 		height: '9%',
-		paddingTop: '1.5%',
+		paddingTop: '2%',
 		gap: 5,
 	},
 	containerBTN: {
 		flexDirection: 'row',
 		justifyContent: 'space-around',
 		...atajos.tamano,
-
 	},
 	containerMain: {
 		position: 'absolute',
@@ -145,7 +144,7 @@ const StyleFooter = StyleSheet.create({
 
 	},
 	touch: {
-		width: '50%',
+		width: '48%',
 		backgroundColor: COLORS.primary,
 		...atajos.center,
 		borderTopLeftRadius: RADIUS.xxlarge,
@@ -158,7 +157,7 @@ const StyleFooter = StyleSheet.create({
 	},
 	navImg: {
 		width: '90%',
-		height: '50%',
+		height: '100%',
 		resizeMode: 'contain',
 		...atajos.margin
 	}
@@ -239,19 +238,46 @@ const StyleLugares = StyleSheet.create({
 		width: '95%',
 		marginLeft: '2.5%',
 		marginTop: 50,
-		marginBottom: 100,
 		flexDirection: 'row',
 		flexWrap: 'wrap',
 		alignItems: 'center',
 		justifyContent: 'center',
 		gap: 10,
+		marginBottom: (.5 * height),
 		// height: (.35*height)*4,
 	},
 	carruselImg:{
 		width: '48%',
 		height: .35*height,
-	}
-
+	},
+	contact:{
+		marginTop: 30,
+		marginRight: 30,
+		flexDirection: 'row',
+		justifyContent: 'flex-end',
+		gap: 15,
+	},
+	contactTouch:{
+		flexDirection: 'row',
+		width: 65,
+		// backgroundColor: COLORS.tertiary,
+		borderRadius: RADIUS.xxlarge,
+		padding: 15,
+        borderColor: COLORS.tertiary,
+        borderWidth: 2,
+	},
+	contactImg:{
+		width: 30,
+		height: 30,
+		resizeMode: 'cover',
+	},
+	contactBtnText:{
+		color: COLORS.primary,
+		fontSize: SIZES.medium,
+		textAlign: 'center',
+		fontWeight: 'bold',
+		letterSpacing: 2,
+	},
 
 })
 const StyleRuta = StyleSheet.create({
@@ -277,11 +303,13 @@ const StyleRuta = StyleSheet.create({
 		backgroundColor: COLORS.primary,
 		borderRadius: RADIUS.xxlarge,
 		...atajos.center,
+        borderColor: COLORS.tertiary,
+        borderWidth: 2,
 	},
 	icon: {
-		width: '80%',
-		height: '80%',
-		resizeMode:'contain',
+		width: '100%',
+		height: '100%',
+		resizeMode:'cover',
 	}
 })
 export { StylesMapa, Establecimientos, StyleMenuLateral, StyleFooter, StyleLugares, StyleRuta }

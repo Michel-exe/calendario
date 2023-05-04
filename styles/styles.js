@@ -1,6 +1,7 @@
 import {StyleSheet, Dimensions} from 'react-native'
 import {SIZES,TEXTS,RADIUS,COLORS,SHADOWS} from '../constants/'
 import atajos from './atajos';
+import { Share } from 'react-native-web';
 
 const { height, width } = Dimensions.get("window");
 
@@ -80,5 +81,24 @@ const BtnCerrar = StyleSheet.create({
         resizeMode: 'contain',
     }
 })
+const home = StyleSheet.create({
+    container: {
+        position: 'absolute',
+        top: 75,
+        left: '2.5%',
+        width: 50,
+        height: 50,
+        padding: 7.5,
+        borderRadius: RADIUS.xxlarge,
+        backgroundColor: COLORS.primary,
+        borderColor: COLORS.tertiary,
+        borderWidth: 2,
+    },
+    icon: {
+        width: '100%',
+        height: '100%',
+        resizeMode: 'cover',
+    }
+})
 
-export {alert,button,BtnCerrar}
+export {alert,button,BtnCerrar,home}

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, TouchableOpacity, ScrollView } from 'react-native'
+import { Text, View, TouchableNativeFeedback, ScrollView } from 'react-native'
 import establecimientos from '../../data/establecimientos'
 import { StyleLugares } from '../../styles/pages';
 
@@ -15,7 +15,7 @@ export default function Lugares({events:{setloc,settext,seturi},cerrar}) {
                         <View>
                            {est.data.map(data => {
                               return (
-                                 <TouchableOpacity key={data.id}
+                                 <TouchableNativeFeedback key={data.id}
                                     onPress={()=>{
                                        cerrar()
                                        settext(data.name)
@@ -27,7 +27,7 @@ export default function Lugares({events:{setloc,settext,seturi},cerrar}) {
                                        <Text style={StyleLugares.cajaHijoTit}>{data.name}</Text>
                                        <Text style={StyleLugares.cajaHijoDes}>{data.refe}</Text>
                                     </View>
-                                 </TouchableOpacity>
+                                 </TouchableNativeFeedback>
                               )
                            })}
                         </View>
