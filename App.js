@@ -1,9 +1,10 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import Principal from './pages/Principal';
+// import { NativeRouter } from 'react-router-native';
+import Home from './pages/components/Home';
 
 export default function App() {
   return (
-    <Principal />
+    // <NativeRouter>
+      <Home />
+    // </NativeRouter>
   );
 }

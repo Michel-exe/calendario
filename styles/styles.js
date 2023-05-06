@@ -50,6 +50,19 @@ const button = StyleSheet.create({
         ...atajos.button,
         ...atajos.center,
     },
+	contactTouch:{
+		flexDirection: 'row',
+		width: 65,
+		borderRadius: RADIUS.xxlarge,
+		padding: 15,
+        borderColor: COLORS.tertiary,
+        borderWidth: 2,
+	},
+	contactImg:{
+		width: 30,
+		height: 30,
+		resizeMode: 'cover',
+	},
     text:{
         textAlign: 'center',
         letterSpacing: 2,

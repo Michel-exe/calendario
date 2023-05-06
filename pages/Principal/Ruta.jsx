@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { StyleRuta } from '../styles/pages';
+import { StyleRuta } from '../../styles/pages';
 import { requestForegroundPermissionsAsync, getCurrentPositionAsync } from 'expo-location'
 import { View, TouchableWithoutFeedback, Animated, Image } from 'react-native'
 import MapView, { Marker, PROVIDER_OSM, } from 'react-native-maps'
 import MapViewDirections from 'react-native-maps-directions'
-import { icons } from '../constants';
+import { icons } from '../../constants';
 
 export default function Ruta({ ruta, posRuta, cerRuta }) {
    if (ruta.latitude === undefined) {

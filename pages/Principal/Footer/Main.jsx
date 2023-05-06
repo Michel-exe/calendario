@@ -1,7 +1,7 @@
 import React from 'react'
 import { Animated } from 'react-native'
-import { StyleFooter } from '../../styles/pages'
-import BtnCerrarMain from '../components/BtnCerrarMain'
+import { StyleFooter } from '../../../styles/pages'
+import BtnCerrarMain from '../../components/BtnCerrarMain'
 import Lugares from './Lugares'
 
 export default function Main({ position, cerrar, events }) {

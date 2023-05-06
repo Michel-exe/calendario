@@ -34,13 +34,13 @@ export default [
       tit: 'Demas',
       links: [
          {
-            idlista: 'item5jG6SkL7',
-            text: 'Apoyanos a seguir desarrollando',
+            idlista: 'item9cB3PxV2',
+            text: 'Terminos y condiciones',
             link : 'https://www.google.com/'
          },
          {
-            idlista: 'item9cB3PxV2',
-            text: 'Terminos y condiciones',
+            idlista: 'item5jG6SkL7',
+            text: 'Apoyanos a seguir desarrollando',
             link : 'https://www.google.com/'
          },
          {

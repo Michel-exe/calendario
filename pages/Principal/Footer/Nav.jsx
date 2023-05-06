@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Image } from 'react-native'
-import { StyleFooter } from '../../styles/pages'
+import { StyleFooter } from '../../../styles/pages'
 
 export default function Nav({ img }) {
    return (

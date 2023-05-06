@@ -1,8 +1,8 @@
 import React from 'react'
 import { View, TouchableOpacity } from 'react-native'
-import { StyleFooter } from '../styles/pages'
+import { StyleFooter } from '../../styles/pages'
 import Nav from './Footer/Nav'
-import { icons } from '../constants'
+import { icons } from '../../constants'
 
 export default function Footer({ activar, activar2}) {
    return (

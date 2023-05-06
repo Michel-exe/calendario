@@ -1,7 +1,7 @@
 import React from 'react'
 import { Text, View, TouchableNativeFeedback, ScrollView } from 'react-native'
-import establecimientos from '../../data/establecimientos'
-import { StyleLugares } from '../../styles/pages';
+import establecimientos from '../../../data/establecimientos'
+import { StyleLugares } from '../../../styles/pages';
 
 export default function Lugares({events:{setloc,settext,seturi},cerrar}) {
    return (

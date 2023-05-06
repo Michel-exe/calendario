@@ -47,7 +47,19 @@ const StylesMapa = StyleSheet.create({
 		letterSpacing: 2,
 		fontWeight: 'bold',
 		color: COLORS.tertiary
-	}
+	},
+	logo:{
+		position: 'absolute',
+		top: 100,
+		right: 0,
+		width: 50,
+		height: 30,
+	},
+	imgLogo:{
+		width: 50,
+		height: 30,
+		resizeMode: 'contain',
+	},
 })
 const StyleMenuLateral = StyleSheet.create({
 	container: {
@@ -237,39 +249,33 @@ const StyleLugares = StyleSheet.create({
 		flex: 1,
 		width: '95%',
 		marginLeft: '2.5%',
-		marginTop: 50,
-		flexDirection: 'row',
-		flexWrap: 'wrap',
-		alignItems: 'center',
-		justifyContent: 'center',
-		gap: 10,
-		marginBottom: (.5 * height),
+		height: '100%',
+		maxHeight: .35 * height,
+		marginTop: 30,
+		marginBottom: 10,
+		// flexDirection: 'row',
+		// flexWrap: 'wrap',
+		// alignItems: 'center',
+		// justifyContent: 'center',
+		// gap: 10,
 		// height: (.35*height)*4,
+	},
+	carruselText:{
+		fontSize: SIZES.xlarge,
+		color: COLORS.tertiary,
+		fontWeight: 'bold',
+		marginBottom: 10,
 	},
 	carruselImg:{
 		width: '48%',
 		height: .35*height,
 	},
 	contact:{
-		marginTop: 30,
+		marginTop: 10,
 		marginRight: 30,
 		flexDirection: 'row',
 		justifyContent: 'flex-end',
-		gap: 15,
-	},
-	contactTouch:{
-		flexDirection: 'row',
-		width: 65,
-		// backgroundColor: COLORS.tertiary,
-		borderRadius: RADIUS.xxlarge,
-		padding: 15,
-        borderColor: COLORS.tertiary,
-        borderWidth: 2,
-	},
-	contactImg:{
-		width: 30,
-		height: 30,
-		resizeMode: 'cover',
+		gap: 10,
 	},
 	contactBtnText:{
 		color: COLORS.primary,

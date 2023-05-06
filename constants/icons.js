@@ -15,11 +15,12 @@ import whatsapp from "../assets/icons/whatsapp.png";
 import home from "../assets/icons/home.png";
 import url from "../assets/icons/url.png";
 import msj from "../assets/icons/msj.png";
+import facebook from "../assets/icons/facebook.png";
 
 
 export default {
     categories,fd,fl,fr,fu,
     edificios,menu,plus,ruta,
     walk,cerrar,ver,phone,whatsapp,
-    home,url,msj
+    home,url,msj,facebook
 }

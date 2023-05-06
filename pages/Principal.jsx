@@ -2,18 +2,18 @@ import React, { useState } from 'react'
 import { View } from 'react-native'
 import { Establecimientos } from '../styles/pages';
 import Alerta from './components/Alerta';
-import Mapa from './Mapa';
+import Mapa from './Principal/Mapa';
+import Footer from './Principal/Footer';
 import MenuLateral from './components/MenuLateral';
 import { Animacion } from '../code/MenuLateral';
 import { MenuRuta } from '../code/MenuRuta';
-import Footer from './Footer';
 import { AnimacionMain } from '../code/AnimacionMain'
 import { AnimacionMain2 } from '../code/AnimacionMain2'
-import Main from './Footer/Main';
-import Lugar from './Footer/Lugar';
-import Ruta from './Ruta';
+import Main from './Principal/Footer/Main';
+import Lugar from './Principal/Footer/Lugar';
+import Ruta from './Principal/Ruta';
 import Home from './components/Home';
-// import Carrusel from './Carrusel';
+// import Carrusel from './components/Carrusel';
 
 export default function Principal() {
    const { actMl, posMl, cerMl } = Animacion()
@@ -30,10 +30,8 @@ export default function Principal() {
       longitude: -98.53468
    })
 
-
    return (
       <View style={Establecimientos.container}>
-         {/* <Carrusel /> */}
          <Mapa 
             uri={uri}
             text={text}
