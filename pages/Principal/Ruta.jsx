@@ -14,7 +14,7 @@ export default function Ruta({ ruta, posRuta, cerRuta }) {
       }
    }
 
-   const llave = 'AIzaSyB6VYlWZgRfFO1hmJFYlOIwOc9LjmGH4-M'
+   const llave = 'asdfghjklñpoiuytrewqqwertyuioplkjhgfds'
 
    useEffect(() => {
       obtLocations();

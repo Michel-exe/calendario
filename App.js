@@ -1,10 +1,9 @@
-// import { NativeRouter } from 'react-router-native';
-import Home from './pages/components/Home';
+import Router from './pages/Router';
 
 export default function App() {
   return (
     // <NativeRouter>
-      <Home />
+    <Router />
     // </NativeRouter>
   );
 }

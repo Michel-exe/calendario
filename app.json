@@ -21,10 +21,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ebddcc"
-      }
+      },
+      "package": "com.briandevxanthe.xantheBeta"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "49663a9a-8f38-49ae-8e2f-c6beb7178a33"
+      }
     }
   }
 }
